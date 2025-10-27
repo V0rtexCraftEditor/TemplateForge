@@ -1,0 +1,90 @@
+/* v5 styles: Presets UI + previous features */
+:root {
+  --brand: #0d6efd;
+  --brand-2: #6c757d;
+  --bg: #ffffff;
+  --ink: #212529;
+  --title-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --body-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body { font-family: var(--body-font); }
+
+.device-wrap {
+  display: flex; justify-content: center; align-items: center;
+  background: repeating-conic-gradient(from 0deg, #f8f9fa 0% 25%, #fff 0% 50%) 0 0 / 20px 20px;
+  padding: 12px; border-radius: .75rem; border: 1px solid #e9ecef;
+}
+
+.canvas {
+  min-height: 70vh;
+  background: var(--bg);
+  border: 1px solid #dee2e6;
+  border-radius: .75rem;
+  overflow: hidden;
+  width: 1140px;
+}
+.canvas.mobile { width: 375px; }
+.canvas.tablet { width: 768px; }
+.canvas.desktop { width: 1140px; }
+
+.grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.block {
+  position: absolute;
+  border-radius: .5rem;
+  border: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+  padding: .5rem .75rem;
+  user-select: none;
+  touch-action: none;
+}
+.block.selected { outline: 3px dashed #20c997; outline-offset: 2px; }
+.block.navbar { background: rgba(13,110,253,.12); }
+.block.hero { background: rgba(13,202,240,.1); }
+.block.heading { background: rgba(255,193,7,.2); }
+.block.paragraph { background: rgba(102,16,242,.08); }
+.block.button { background: rgba(25,135,84,.2); }
+.block.image { background: #e9ecef; display:flex; align-items:center; justify-content:center; color:#6c757d; }
+.block.section { background: rgba(255,133,27,.15); }
+.block.cards3, .block.grid3, .block.testimonial, .block.pricing, .block.footer,
+.block.features3, .block.faq, .block.timeline { background: rgba(13,110,253,.08); }
+
+/* Stacked mode */
+.canvas.stacked .grid { display:none; }
+.canvas.stacked .block { position: relative; width: auto !important; height: auto !important; left: 0 !important; top: 0 !important; margin: .5rem; }
+
+/* Themes */
+.theme-mint { --brand:#17b897; --brand-2:#7cd4c2; --bg:#fffdf8; --ink:#162a2a; }
+.theme-forest { --brand:#0b5d1e; --brand-2:#174d2c; --bg:#fafaf7; --ink:#0e1b12; }
+.theme-magenta { --brand:#ff3da4; --brand-2:#ff8a00; --bg:#fff9ff; --ink:#1a0b1a; }
+.theme-neutral { --brand:#495057; --brand-2:#212529; --bg:#ffffff; --ink:#212529; }
+
+/* Exported CSS */
+.exported .btn { display:inline-block; padding:.75rem 1.25rem; background: var(--brand); color:#fff; border-radius:.5rem; text-decoration:none }
+.exported .imgbox{ background:#e9ecef; border-radius:.5rem; display:flex; align-items:center; justify-content:center; color:#6c757d }
+.exported .section{ padding:2rem; border:1px dashed #ccc; border-radius:.75rem; background:#fff }
+.exported .navbar{ background:var(--brand); color:white; padding:1rem; border-radius:.5rem }
+.exported main{ max-width:960px; margin:2rem auto; padding:0 1rem }
+.exported .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.exported .cardx { border:1px solid #e5e7eb; border-radius:.75rem; padding:1rem; background:#fff }
+.exported .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.exported .testimonial { border-left:4px solid var(--brand); background:#fff; padding:1rem; border-radius:.5rem }
+.exported .pricing { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.exported .pricing .plan { border:1px solid #e5e7eb; border-radius:.75rem; padding:1rem; background:#fff }
+.exported footer { color:#fff; background: var(--brand-2); padding: 1.25rem; border-radius:.5rem }
+.exported .features { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+.exported .feature { background:#fff; border:1px solid #e5e7eb; border-radius:.75rem; padding:1rem }
+.exported .feature .ico { width:32px; height:32px; border-radius:50%; background:var(--brand); display:inline-block; margin-right:.5rem }
+.exported .faq { border:1px solid #e5e7eb; border-radius:.75rem; background:#fff; padding:1rem }
+.exported .faq details { border-bottom:1px solid #eef; padding:.5rem 0 }
+.exported .timeline { border-left:3px solid var(--brand); padding-left:1rem }
+.exported .timeline .item { position:relative; margin:.5rem 0 }
+.exported .timeline .item::before { content:''; position:absolute; left:-14px; top:.3rem; width:10px; height:10px; border-radius:50%; background:var(--brand) }
